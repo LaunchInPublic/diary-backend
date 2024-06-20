@@ -6,8 +6,8 @@
     "test": "test"
   },
   "scripts": {
-    "start": "ts-node src/server.ts --transpile-only | npx pino-pretty",
-    "dev": "ts-node --watch --no-emit src/server.ts | npx pino-pretty",
+    "start": "ts-node src/app.ts --transpile-only | npx pino-pretty",
+    "dev": "ts-node --watch --no-emit src/app.ts | npx pino-pretty",
     "test": "node --test test/**/*.test.js",
     "build": "tsc -p tsconfig.json",
     "prestart": "npm run build"
