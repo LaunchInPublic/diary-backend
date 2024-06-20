@@ -6,9 +6,9 @@
     "test": "test"
   },
   "scripts": {
-    "start": "node dist/src/app.js",
+    "start": "ts-node src/server.ts --transpile-only | npx pino-pretty",
+    "dev": "ts-node --watch --no-emit src/server.ts | npx pino-pretty",
     "test": "node --test test/**/*.test.js",
-    "dev": "ts-node --watch --no-emit src/app.ts | npx pino-pretty",
     "build": "tsc -p tsconfig.json",
     "prestart": "npm run build"
   },
@@ -20,7 +20,8 @@
     "@fastify/sensible": "^5.0.0",
     "fastify": "^4.26.1",
     "fastify-cli": "^6.1.1",
-    "fastify-plugin": "^4.0.0"
+    "fastify-plugin": "^4.0.0",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@types/node": "^20.14.0",
