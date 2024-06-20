@@ -1,0 +1,30 @@
+{
+  "name": "bakend",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with Fastify-CLI.",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node dist/src/app.js",
+    "test": "node --test test/**/*.test.js",
+    "dev": "ts-node --watch --no-emit src/app.ts | npx pino-pretty",
+    "build": "tsc -p tsconfig.json",
+    "prestart": "npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/autoload": "^5.0.0",
+    "@fastify/sensible": "^5.0.0",
+    "fastify": "^4.26.1",
+    "fastify-cli": "^6.1.1",
+    "fastify-plugin": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "json-schema-to-typescript": "^14.0.5",
+    "typescript": "^5.4.5"
+  }
+}
