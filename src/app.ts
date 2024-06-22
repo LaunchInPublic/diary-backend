@@ -1,4 +1,5 @@
 import fastify from "fastify";
+import { StatusCodes } from "http-status-codes";
 
 import { diaryRouter } from "../routes/diary.route";
 
@@ -7,7 +8,7 @@ const app = fastify();
 app.register(diaryRouter);
 
 app.get("/ping", async (request, reply) => {
-  return "pong\n";
+  reply.status(StatusCodes.OK).send("Pong");
 });
 
 app.listen({ port: 3004 }, (err, address) => {
