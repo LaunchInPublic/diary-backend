@@ -1,23 +1,12 @@
-# Getting Started with [Fastify-CLI](https://www.npmjs.com/package/fastify-cli)
-This project was bootstrapped with Fastify-CLI.
+# Backend (diary app) - Build In Public project
 
-## Available Scripts
 
-In the project directory, you can run:
+## The Cook
 
-### `npm run dev`
+[![Pierre-Henry Soria](https://s.gravatar.com/avatar/a210fe61253c43c869d71eaed0e90149?s=200)](https://ph7.me "Pierre-Henry Soria personal website")
 
-To start the app in dev mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**[Pierre-Henry Soria](https://ph7.me)**. A super passionate and mission-driven software engineer! 😊 I'm also a true cheese 🧀, dark chocolate, and espresso lover! 😋 Feel free to reach me at: `pierre {[AT]} pH7 {[D0T]} me`
 
-### `npm start`
+## License
 
-For production mode
-
-### `npm run test`
-
-Run the test cases.
-
-## Learn More
-
-To learn Fastify, check out the [Fastify documentation](https://fastify.dev/docs/latest/).
+Generously distributed under the [MIT license](https://opensource.org/license/mit/).
