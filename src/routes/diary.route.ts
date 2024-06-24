@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { StatusCodes } from "http-status-codes";
 
-import { notes } from "./../models/persistence/note";
+import { notes } from "../dao/persistence/note";
 
 interface Diary {
   id?: number;
