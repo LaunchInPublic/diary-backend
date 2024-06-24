@@ -1,7 +1,7 @@
 import fastify from "fastify";
 import { StatusCodes } from "http-status-codes";
 
-import { diaryRouter } from "../routes/diary.route";
+import { diaryRouter } from "./routes/diary.route";
 
 const app = fastify();
 

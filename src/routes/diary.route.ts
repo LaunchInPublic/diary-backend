@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { StatusCodes } from "http-status-codes";
 
-const dynamicDbData: any = [];
+import { notes } from "./../models/persistence/note";
 
 interface Diary {
   id?: number;
@@ -13,14 +13,14 @@ interface Diary {
 // CRUD endpoints for diary app
 export async function diaryRouter(app: FastifyInstance) {
   app.get("/", async (request, reply) => {
-    reply.status(StatusCodes.OK).send(dynamicDbData);
+    reply.status(StatusCodes.OK).send(notes);
   });
 
   app.get("/:id", async (request, reply) => {
     const { id } = request.params as { id: string };
     const idInteger = parseInt(id, 10); // Cast to integer decimal number
 
-    const diary = dynamicDbData.find((item: Diary) => item.id === idInteger);
+    const diary = notes.find((item: Diary) => item.id === idInteger);
 
     if (!diary) {
       console.info("Note entry not found");
@@ -40,13 +40,13 @@ export async function diaryRouter(app: FastifyInstance) {
       return;
     }
 
-    body.id = dynamicDbData.length + 1;
+    body.id = notes.length + 1;
 
     if (!body.createdAt) {
       body.createdAt = new Date();
     }
 
-    dynamicDbData.push(body);
+    notes.push(body);
     reply.status(StatusCodes.CREATED).send(body);
   });
 
@@ -55,27 +55,23 @@ export async function diaryRouter(app: FastifyInstance) {
     const { id } = request.params as { id: string };
     const idInteger = parseInt(id, 10); // Cast to integer decimal number
 
-    const index = dynamicDbData.findIndex(
-      (item: Diary) => item.id === idInteger
-    );
+    const index = notes.findIndex((item: Diary) => item.id === idInteger);
     if (index === -1) {
       reply.status(StatusCodes.NOT_FOUND).send();
     } else {
-      dynamicDbData[index] = { ...dynamicDbData[index], ...(body as Diary) };
-      reply.status(StatusCodes.OK).send(dynamicDbData[index]);
+      notes[index] = { ...notes[index], ...(body as Diary) };
+      reply.status(StatusCodes.OK).send(notes[index]);
     }
   });
 
   app.delete("/:id", async (request, reply) => {
     const { id } = request.params as { id: string };
-    const index = dynamicDbData.findIndex(
-      (item: Diary) => item.id === parseInt(id)
-    );
+    const index = notes.findIndex((item: Diary) => item.id === parseInt(id));
 
     if (index === -1) {
       reply.status(StatusCodes.NOT_FOUND).send();
     } else {
-      dynamicDbData.splice(index, 1);
+      notes.splice(index, 1);
       reply.status(StatusCodes.OK).send({
         message: "Note entry deleted",
       });
